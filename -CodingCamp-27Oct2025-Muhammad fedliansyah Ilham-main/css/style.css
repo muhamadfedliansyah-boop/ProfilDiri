@@ -370,3 +370,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         width: 100%;
     }
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(79, 178, 185, 0.5);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 178, 185, 0.7);
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-track:hover {
+    background: #1e293b;
+}   
+
