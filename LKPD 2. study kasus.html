@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hitung Gaji Karyawan</title>
+</head>
+<body>
+  <h2>Gaji Karyawan</h2>
+  <form onsubmit="hitungGaji(event)">
+    <label>Nama Karyawan:</label><br>
+    <input type="text" id="nama"><br>
+
+    <label>Gaji Pokok:</label><br>
+    <input type="number" id="gajiPokok"><br><br>
+
+    <input type="submit" value="Hitung"><br>
+  </form>
+
+  <h3>Hasil Perhitungan:</h3>
+  <div id="hasil"></div>
+
+  <script>
+    function hitungGaji(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById("nama").value.trim();
+      const gajiPokok = parseFloat(document.getElementById("gajiPokok").value);
+
+      if (!nama || isNaN(gajiPokok) || gajiPokok <= 0) {
+        alert("Mohon isi nama dan gaji pokok dengan benar.");
+        return;
+      }
+
+      const tunjangan = 0.2 * gajiPokok;
+      const pajak = 0.15 * (gajiPokok + tunjangan);
+      const gajiBersih = gajiPokok + tunjangan - pajak;
+
+      const formatRupiah = (angka) => angka.toLocaleString('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+      });
+
+      const hasil = `
+        <p><strong>Nama:</strong> ${nama}</p>
+        <p><strong>Gaji Pokok:</strong> ${formatRupiah(gajiPokok)}</p>
+        <p><strong>Tunjangan:</strong> ${formatRupiah(tunjangan)}</p>
+        <p><strong>Pajak:</strong> ${formatRupiah(pajak)}</p>
+        <p><strong>Gaji Bersih:</strong> ${formatRupiah(gajiBersih)}</p>
+        <hr>
+      `;
+      document.getElementById("hasil").innerHTML += hasil;
+    }
+  </script>
+</body>
+</html>

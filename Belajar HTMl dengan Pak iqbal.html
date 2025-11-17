@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Bilangan Terbesar</title>
+	</head>
+
+	<body>
+	
+			<center>
+				<h2>
+					<font color=green size=300>
+						Cari Bilangan Terbesar dari 3 Angka
+					</font>
+				</h2>
+			</center>
+			
+			<center>
+			<label for="A">Bilangan A:</label>
+			<input type="number" id="A" value="1">
+			<br>
+			<label for="B">Bilangan B:</label>
+			<input type="number" id="B" value="1">
+			<br>
+			<label for="C">Bilangan C:</label>
+			<input type="number" id="C" value="1">
+			<br>
+			
+			<button onclick="cariTerbesar()">Cari Terbesar</button>
+			
+			<div id="hasil">Hasil</div>
+			</center>
+			
+			<center>
+				<font color=blue size=50>
+					Nama:M.fedliansyah Ilham <br>
+					Rombel:PPLG X-1 <br>
+					Rayon:Cisarua 3 <br>
+				</font>
+			</center>
+			
+	<script>
+		function cariTerbesar() {
+		
+			let A = parseFloat(document.getElementById('A').value) || 0;
+			let B = parseFloat(document.getElementById('B').value) || 0;
+			let C = parseFloat(document.getElementById('C').value) || 0;
+			
+			let MAX;
+			MAX=A
+			
+			if (B > MAX) {
+			MAX=B;
+			}
+			
+			if (C > MAX) {
+			MAX=C;
+			}
+			
+			document.getElementById("hasil").innerText =
+				`Bilangan Terbesar adalah: ${MAX}`;
+				
+		}
+		
+		cariTerbesar();
+	</script>
+	</body>
+</html>

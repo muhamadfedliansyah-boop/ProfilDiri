@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <title>Penentuan Grade Iqbal</title>
+  </head>
+
+  <body>
+    <center>
+		<font color="green" size="50">
+			Penentuan Grade Iqbal
+		</font>
+    </center>
+
+    <center>
+      <font color="grey">
+        <p>
+          Nilai PABP:
+          <input type="number" id="pabp" placeholder="Masukin nilai PABP">
+        </p>
+        <p>
+          Nilai MTK:
+          <input type="number" id="mtk" placeholder="Masukin nilai MTK">
+        </p>
+        <p>
+          Nilai DPK:
+          <input type="number" id="dpk" placeholder="Masukin nilai DPK">
+        </p>
+
+        <button onclick="hitungGrade()">Tentukan Grade</button>
+
+        <div id="hasil">Hasilnya akan muncul di sini</div>
+      </font>
+    </center>
+
+    <p>
+      <center>
+        <font color="orange">
+          Nama: <b>M.Fedliansyah Ilham</b><br>
+          Rombel: <b>PPLG X-1</b><br>
+          Rayon: <b>Cisarua 3</b>
+        </font>
+      </center>
+    </p>
+
+    <center>
+      <img src="Foto Fedli.jpg" alt="orang ganteng" width="150" height="150">
+    </center>
+
+    <script>
+      function hitungGrade() {
+        const pabp = parseFloat(document.getElementById("pabp").value);
+        const mtk = parseFloat(document.getElementById("mtk").value);
+        const dpk = parseFloat(document.getElementById("dpk").value);
+
+        if (isNaN(pabp) || isNaN(mtk) || isNaN(dpk)) {
+          document.getElementById("hasil").innerText =
+            "Masukin dulu nilai kamu";
+          return;
+        }
+
+        const rataRata = (pabp + mtk + dpk) / 3;
+        let grade = "";
+
+        if (rataRata >= 80 && rataRata <= 100) {
+          grade = "A";
+        } else if (rataRata >= 75 && rataRata < 80) {
+          grade = "B";
+        } else if (rataRata >= 65 && rataRata < 75) {
+          grade = "C";
+        } else if (rataRata >= 45 && rataRata < 65) {
+          grade = "D";
+        } else if (rataRata >= 0 && rataRata < 45) {
+          grade = "E";
+        } else {
+          grade = "K";
+        }
+
+        document.getElementById("hasil").innerText = `Nilai rata-rata: ${rataRata.toFixed(
+          2
+        )}, masuk Grade ${grade}`;
+      }
+    </script>
+  </body>
+</html>

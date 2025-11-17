@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+		<head>
+		  <meta charset="UTF-8">
+		  <title>Penentuan Grade Rata-rata</title>
+		</head>
+		
+		<body>
+			<center>
+				<font color=green size=50>
+					Penentuan Grade Iqbal
+				</font>
+			</center>
+
+			<center>
+				<font color=grey>
+				  <p>Nilai PABP: <span id="pabp">70</span></p>
+				  <p>Nilai MTK: <span id="mtk">82</span></p>
+				  <p>Nilai DPK: <span id="dpk">77</span></p>
+
+					  <button onclick="hitungGrade()">tentukan Grade</button>
+
+					  <div id="hasil">hasil nya masuk grade</div>
+				  </font>
+			</center>
+			
+			<p>
+				<center>
+					<font color=orange>
+						Nama:<b>M.Fedliansyah Ilham</b>
+						<br>
+						Rombel:<b>PPLG X-1</b>
+						<br>
+						Rayon:<b>Cisarua 3</b>
+					</font>
+				</center>
+			</p>
+			
+			<center>
+				<img src="Foto Fedli.jpg" alt="orang ganteng" width=150 height=150>
+			</center>
+			  <script>
+				function hitungGrade() {
+				  const pabp = 70;
+				  const mtk = 82;
+				  const dpk = 77;
+
+				  const rataRata = (pabp + mtk + dpk) / 3;
+				  let grade = '';
+
+					  if (rataRata >= 80 && rataRata <= 100) {
+						grade = 'A';
+					  } 
+					  else if (rataRata >= 75 && rataRata < 80) {
+						grade = 'B';
+					  }
+					  else if (rataRata >= 65 && rataRata < 75) {
+						grade = 'C';
+					  }
+					  else if (rataRata >= 45 && rataRata < 65) {
+						grade = 'D';
+					  }
+					  else if (rataRata >= 0 && rataRata < 45) {
+						grade = 'E';
+					  }
+					  else {
+						grade = 'K';
+					  }
+
+				  document.getElementById('hasil').innerText =
+					`Nilai rata rata nya ${rataRata.toFixed(2)} jadi nya masuk Grade ${grade}`;
+				}
+			  </script>
+		</body>
+</html>
